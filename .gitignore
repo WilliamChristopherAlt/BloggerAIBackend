@@ -1,2 +1,2 @@
-models/Mistral-7B-Instruct-v0.2-GGUF/
-models/bart-large-mnli/
+models/Mistral-7B-Instruct-v0.2-GGUF/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+models/bart-large-mnli/model.safetensors
