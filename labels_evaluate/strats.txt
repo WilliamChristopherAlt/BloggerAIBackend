@@ -1,0 +1,68 @@
+# Label Strategies for BART Testing
+# Format: [Strategy Name]
+# filter_name | label1, label2, label3 | threshold | reject_index
+#
+# reject_index: which label indicates rejection (0=first label, 1=second label, etc.)
+# threshold: score above this value for reject_index = REJECT
+#
+# Example: Factual | factual, personal | 0.6 | 1
+# This means: if "personal" score > 0.6, REJECT the claim
+
+[Strategy 1: Simple Binary]
+Factual Check | factual claim, not factual | 0.6 | 1
+
+[Strategy 2: Multi-Filter Current]
+Factual | factual, personal | 0.55 | 1
+Spam | meaningful, spam | 0.65 | 1
+Absurd | serious, joke | 0.75 | 1
+Vague | specific, vague | 0.70 | 1
+
+[Strategy 3: News-Focused]
+Newsworthy | newsworthy, not newsworthy | 0.6 | 1
+Verifiable | verifiable, unverifiable | 0.6 | 1
+
+[Strategy 4: Fact-Check Direct]
+Checkable | fact-checkable, not fact-checkable | 0.65 | 1
+
+[Strategy 5: Content Type]
+Type Check | objective statement, subjective opinion, nonsense | 0.5 | 0
+
+[Strategy 6: Refined Multi-Filter]
+Objective | objective claim, subjective opinion | 0.6 | 1
+Coherent | coherent statement, incoherent text | 0.7 | 1
+Newsworthy | newsworthy information, trivial statement | 0.55 | 1
+
+[Strategy 7: Precision-Focused]
+Claim Detection | contains verifiable claim, no verifiable claim | 0.7 | 1
+Quality Check | substantive content, low quality text | 0.6 | 1
+
+[Strategy 8: News + Public Interest]
+Public Interest | public interest, private matter | 0.65 | 1
+Verifiable Fact | verifiable fact, unverifiable statement | 0.65 | 1
+
+[Strategy 9: Tight Binary]
+Fact Claim | factual claim about the world, personal statement | 0.7 | 1
+
+[Strategy 10: Comprehensive Filter]
+Content Quality | meaningful content, gibberish | 0.75 | 1
+Objectivity | objective, subjective | 0.6 | 1
+Checkability | fact-checkable, opinion-based | 0.6 | 1
+Relevance | newsworthy, trivial | 0.6 | 1
+
+[Strategy 11: Research-Based]
+Empirical | empirical claim, non-empirical statement | 0.65 | 1
+Public Info | public information, private information | 0.65 | 1
+
+[Strategy 12: Simple Newsworthy]
+News Filter | news-related, not news-related | 0.65 | 1
+
+[Strategy 13: Academic Style]
+Verifiability | verifiable assertion, non-verifiable statement | 0.65 | 1
+Substantive | substantive claim, insubstantive text | 0.7 | 1
+
+[Strategy 14: High Precision]
+Strong Factual | definite factual claim, not a factual claim | 0.75 | 1
+
+[Strategy 15: Balanced Multi]
+Factuality | factual statement, opinion or feeling | 0.6 | 1
+Clarity | clear statement, unclear text | 0.65 | 1
