@@ -20,7 +20,7 @@ SET UP MÔI TRƯỜNG LÀM VIỆC
               Vào folder models/Mistral-7B-Instruct-v0.2-GGUF -> tải mistral-7b-instruct-v0.2.Q4_K_M.gguf trong link
 
 CHẠY MODEL QUA API
-    uvicorn fastapi_news_api:app --reload --host 127.0.0.1 --port 8000
+    uvicorn api:app --reload --host 127.0.0.1 --port 8000
 
 
 SAU ĐÓ BUILD PROJECT BÊN MVC NHƯ THƯỜNG
